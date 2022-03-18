@@ -1,0 +1,66 @@
+collectons , document
+db
+show dbs
+db
+exit
+show collectons
+
+
+
+// create db
+use sample
+
+// crerate collectons
+db.createCollection('user)
+
+//insert value
+db.user.insert({"name":"saranjith p","place":"kannur"})
+
+or
+
+db.user.insert({"name":"saranjith"})
+
+or
+
+db.user.insertMany([{name:"saran",age:"19"},{name:"jihtu",age:"19",place:"kannur"}])
+
+//read
+db.user.find().pretty()
+show dbs
+
+//find one value
+db.user.find({"place":"kannur"}).pretty()
+
+//find age graterthan 20 $gt > or $lt <
+db.user.find({"age":{$gt:20}}).pretty()
+
+//view only name 
+db.user.find({"age":{$gt:20}},{name:1}).pretty()
+
+// dissable id
+//0 =  dissable,1=enable
+db.user.find({"age":{$gt:15}},{name:1,_id:0}).pretty()
+
+//enable place
+db.user.find({"age":{$gt:10}},{name:1,_id:0,place:1}).pretty()
+
+
+//delete
+db.dropDatabase()
+
+or
+
+db.user.drop()
+
+//delete documet  ,1 delete one value
+db.user.remove({name:"vlmna"})
+
+//update
+{} = find
+$set update
+db.user.update({name:"jithu"},{$set:{name:"vlmna"}})
+
+
+//updateMany
+// update age 19 all data change to age 20
+db.user.updateMany({age:"19"},{$set:{age:"20"}})
