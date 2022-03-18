@@ -1,0 +1,26 @@
+{{!-- {{#each person}}
+<h1>{{@index}},{{this}}</h1>
+{{/each}} --}}
+{{!-- <h4>{{value.comments.comments}}</h4> --}}
+
+
+{{#if value.admin}}
+<h1>
+    This is admin
+</h1>
+
+{{else}}
+<h1>
+    This is not admin
+</h1>
+{{/if}}
+
+
+{{!-- use with userfrindly remove . --}}
+
+
+{{#with value}}
+{{#with comments}}
+<h1>{{comment}}</h1>
+{{/with}}
+{{/with}}
